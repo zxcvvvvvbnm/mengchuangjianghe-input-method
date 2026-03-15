@@ -1,0 +1,211 @@
+# 本文件：领导与员工、职场术语（与 wordlist_src.txt 一起被 build_static.py 合并）
+# 格式：每行「拼音 词」
+
+# === 领导对下属常用 ===
+xiafa 下发
+bushu 部署
+luoshi 落实
+genjin 跟进
+tuijin 推进
+zhixing 执行
+baogao 报告
+huibao 汇报
+zongjie 总结
+zongjiehui 总结会
+mubiao 目标
+renwu 任务
+jiedian 节点
+qixian 期限
+deadline 截止日期
+yanshou 验收
+shenhe 审核
+shenpi 审批
+pizhun 批准
+fankui 反馈
+tijiao 提交
+dinggao 定稿
+chugao 初稿
+yigao 一稿
+ergao 二稿
+zhonggao 终稿
+jiaban 加班
+tiaoxiu 调休
+qingjia 请假
+shenqing 申请
+baoxiao 报销
+daka 打卡
+qiandao 签到
+qiandao 签到
+chidao 迟到
+zaotui 早退
+waichu 外出
+chuchai 出差
+huiyi 会议
+kaimo 开模
+yuyue 预约
+paiban 排班
+zhiban 值班
+peixun 培训
+kaohe 考核
+pingjia 评价
+jixiao 绩效
+jixiaokaohe 绩效考核
+tigao 提高
+gailiang 改进
+wanshan 完善
+youhua 优化
+luoshidaodiren 落实到人
+zerendaoren 责任到人
+mingqueshijian 明确时间
+geiwoyigedaoqi 给我一个到期
+zhezhouwujiaoban 这周务必交版
+nimenzijitaolun 你们自己讨论
+kankanzenmeban 看看怎么办
+zhege neng buneng tiqian 这个能不能提前
+zhuoyan luoshi 抓紧落实
+yiding yaobawo 一定要把握
+chongdian gongzuo 重点工作
+genjin yixia 跟进一下
+jishi huibao 及时汇报
+youshenmewenti suishi lianxi 有什么问题随时联系
+qingkuang zenmeyang 情况怎么样
+jindu zenmeyang 进度怎么样
+jinkuai gongbu 尽快公布
+daodiren 到的人
+quanbu daodiren 全部到的人
+
+# === 员工对领导常用 ===
+lingdao 领导
+laoban 老板
+zongjian 总监
+jingli 经理
+zhuguan 主管
+laoshi 老师
+shouzhang 首长
+huiibaogei nin 汇报给您
+xiang nin huibao 向您汇报
+qing nin shenpi 请您审批
+qing nin guomu 请您过目
+qing nin zhishi 请您指示
+nin kan yixia 您看一下
+nin youkong ma 您有空吗
+fangbian dehua 方便的话
+dagai shenmeshihou 大概什么时候
+zhege xuyao nin pizhun 这个需要您批准
+qing nin qianzi 请您签字
+yijing nonghao 已经弄好
+zuohao le 做好了
+wanchengle 完成了
+zhengzai genjin 正在跟进
+jinkuai gei nin 尽快给您
+tuichi yixia 推迟一下
+yanshi yitian 延迟一天
+mianqian neng wancheng 目前能完成
+keneng yao yanqi 可能要延期
+you yidian kunnan 有一点困难
+xuyao peihe 需要配合
+xuyao qita bumen 需要其他部门
+qing nin dingduo 请您定夺
+qing nin juece 请您决策
+baogao yixia 报告一下
+qingkuang shi zheyang 情况是这样
+youge wenti 有个问题
+xuyao nin zhichi 需要您支持
+qing nin zhishi 请您指示
+
+# === 职场通用术语 ===
+gongsi 公司
+bumen 部门
+xiangmu 项目
+gongzuo 工作
+renwu 任务
+zeren 责任
+gangwei 岗位
+zhize 职责
+fengong 分工
+xietiao 协调
+peihe 配合
+goutong 沟通
+duijie 对接
+lianluo 联络
+huiyi 会议
+yishi 议题
+yicheng 议程
+jilu 记录
+jiyao 纪要
+jueyi 决议
+fangan 方案
+jihua 计划
+guihua 规划
+yusuan 预算
+shenqing 申请
+shenpi 审批
+liucheng 流程
+guicheng 规程
+zhidu 制度
+guiding 规定
+tiaoli 条例
+wenjian 文件
+tongzhi 通知
+gonggao 公告
+gongshi 公示
+han 函
+qingshi 请示
+pifu 批复
+zhuanfa 转发
+cunchu 传阅
+qianshou 签收
+dangan 档案
+guidang 归档
+beian 备案
+liudi 留底
+hetong 合同
+qianshu 签署
+gaizhang 盖章
+shengxiao 生效
+daoqi 到期
+xugian 续签
+jieyue 解约
+weiyue 违约
+mianze 免责
+zeren 责任
+peichang 赔偿
+tiaojie 调解
+zhongcai 仲裁
+susong 诉讼
+renshi 人事
+zhaopin 招聘
+luyong 录用
+ruhzhi 入职
+lizhi 离职
+jiaogong 交接
+zhuanzheng 转正
+tiaoxin 调薪
+shengzhi 升职
+pingdiao 平调
+jiangzhi 降职
+neitui 内推
+tuijian 推荐
+mianshi 面试
+bishi 笔试
+kaocha 考察
+shiyongqi 试用期
+hetongqi 合同期
+gongzi 工资
+xinzi 薪资
+jiangjin 奖金
+ticheng 提成
+wuxian 五险
+yijin 一金
+gongjijin 公积金
+nianzhongjiang 年终奖
+jiabanfei 加班费
+butie 补贴
+fuli 福利
+tiaoxiu 调休
+nianjia 年假
+bingjia 病假
+shijia 事假
+chanjia 产假
+hunjia 婚假
+sangjia 丧假

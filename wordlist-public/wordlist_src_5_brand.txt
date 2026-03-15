@@ -1,0 +1,5 @@
+# 本文件：品牌/产品名（与 wordlist_src.txt 一起被 build_static.py 合并）
+# 格式：每行「拼音 词」
+
+# === 品牌/产品 ===
+jisuyatu 极速压图
