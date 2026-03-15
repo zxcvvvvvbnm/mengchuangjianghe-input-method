@@ -9,9 +9,9 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
-/app/build
-**/build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+# 语音模型需自行下载，见 README/scripts/README_voice.md
+**/assets/ggml-*.bin

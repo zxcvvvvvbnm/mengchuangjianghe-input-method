@@ -23,6 +23,12 @@
 ```
 产出在 `app/build/outputs/apk/debug/`。
 
+## 语音转文字（长按空格说话出字）
+
+- 本应用已对接 [mengchuangjianghe-asr](https://github.com/Mencaje/mengchuangjianghe-asr)，长按空格键录音，松手后本地识别上屏。
+- **跑通步骤**：在 `app/src/main/assets/` 放入 `ggml-tiny.bin`（见仓库根目录 README「语音转文字怎么对接」）；首次构建会拉取 whisper，稍等即可。
+- **常见问题**（如仍走系统识别、识别慢、结果为空等）见 ASR 仓库 [常见问题与解决方案](https://github.com/Mencaje/mengchuangjianghe-asr#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)。
+
 ## 与仓库其他部分的关系
 
 - **词库**：应用默认从本仓库的 `wordlist-public/wordlist.txt`（GitHub raw）拉取远程词库，无需改代码即可享受社区更新的词库。

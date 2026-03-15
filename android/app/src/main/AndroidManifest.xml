@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -32,6 +34,13 @@
             android:exported="false"
             android:theme="@style/Theme.MyApplication"
             android:parentActivityName=".MainActivity" />
+
+        <!-- 透明页仅用于从输入法内请求麦克风权限 -->
+        <activity
+            android:name=".VoicePermissionRequestActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VoicePermission"
+            android:taskAffinity="" />
 
         <!-- 输入法服务：透明窗口主题以便键盘顶部圆角可见 -->
         <service

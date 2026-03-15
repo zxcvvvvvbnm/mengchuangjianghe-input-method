@@ -22,6 +22,8 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.Toast
+import android.util.Log
+import com.mengchuangjianghe.asr.AsrFactory
 import java.io.File
 
 /**
@@ -70,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         if (prefs.getBoolean(KEY_ONBOARDING_DONE, false)) {
             if (isOurImeEnabled() && isOurImeSelected()) {
                 showHome()
+                runAsrTest()
                 return
             }
             prefs.edit().putBoolean(KEY_ONBOARDING_DONE, false).apply()
@@ -277,16 +280,28 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /** 验证 ASR 依赖：使用萌创匠盒 ASR 库做一次识别并打日志（见 Logcat 的 TAG） */
+    private fun runAsrTest() {
+        try {
+            val engine = AsrFactory.createDefault()
+            val result = engine.recognize(ByteArray(1600), 16000)
+            Log.d(TAG_ASR, "ASR 依赖已拉取并运行: ${result.text}, confidence=${result.confidence}")
+        } catch (e: Exception) {
+            Log.e(TAG_ASR, "ASR 测试异常", e)
+        }
+    }
+
     companion object {
+        private const val TAG_ASR = "MengBoxASR"
         internal const val PREFS_NAME = "mengbox_ime"
         private const val KEY_ONBOARDING_DONE = "onboarding_done"
         internal const val KEY_DEFAULT_KEYBOARD_TYPE = "default_keyboard_type"
         /** 远程词库 TXT 的 URL（与 RemoteWordListFetcher 共用，存于此便于在设置里持久化） */
         internal const val KEY_REMOTE_WORDLIST_URL = "remote_wordlist_url"
         /** 默认远程词库地址（GitHub 仓库 wordlist-public，社区维护，合并后 APK 自动拉取最新） */
-        internal const val DEFAULT_REMOTE_WORDLIST_URL = "https://raw.githubusercontent.com/zxcvvvvvbnm/mengchuangjianghe-input-method/main/wordlist-public/wordlist.txt"
+        internal const val DEFAULT_REMOTE_WORDLIST_URL = "https://raw.githubusercontent.com/Mencaje/mengchuangjianghe-input-method/main/wordlist-public/wordlist.txt"
         /** 静态站根 URL（皮肤列表 skins/list.json 拉取用，默认指向本仓库 main 分支，社区更新皮肤后 APK 拉取即得最新） */
-        internal const val DEFAULT_STATIC_BASE_URL = "https://raw.githubusercontent.com/zxcvvvvvbnm/mengchuangjianghe-input-method/main"
+        internal const val DEFAULT_STATIC_BASE_URL = "https://raw.githubusercontent.com/Mencaje/mengchuangjianghe-input-method/main"
         internal const val KEY_STATIC_BASE_URL = "static_base_url"
         /** 已选皮肤背景图 URL（键盘壁纸，仅当未选「已下载皮肤」时使用） */
         internal const val KEY_SELECTED_SKIN_BACKGROUND_URL = "selected_skin_background_url"

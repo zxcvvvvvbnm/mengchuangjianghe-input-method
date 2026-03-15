@@ -19,6 +19,12 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <!-- 仅用于请求麦克风权限的透明页 -->
+    <style name="Theme.VoicePermission" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <!-- 26键键盘：圆角深色按键；关闭 textAllCaps 以便英文模式下显示小写 -->
     <style name="Key26Letter" parent="Base.Widget.AppCompat.Button">
         <item name="android:layout_width">0dp</item>

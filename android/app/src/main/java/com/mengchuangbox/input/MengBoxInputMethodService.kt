@@ -1,7 +1,22 @@
 package com.mengchuangbox.input
 
+import android.content.ComponentName
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.provider.Settings
+import android.media.AudioFormat
+import android.media.AudioRecord
+import android.media.MediaRecorder
+import android.speech.RecognitionListener
+import android.speech.RecognitionService
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
+import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
@@ -27,6 +42,13 @@ import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.TextView
+import android.widget.Toast
+import com.mengchuangjianghe.asr.TextRefiner
+import com.mengchuangjianghe.asr.android.AsrAndroid
+import android.Manifest
+import java.io.ByteArrayOutputStream
+import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * 萌创匠盒输入法：按引导页选择展示 9键/26键/手写/笔画 真实键盘。
@@ -148,6 +170,31 @@ class MengBoxInputMethodService : InputMethodService() {
 
     private var keyboardRootView: View? = null
     private var keyboardWrapperView: View? = null
+    private var voiceOverlayView: View? = null
+    /** 松手时调用，结束录音并识别上屏 */
+    private var voiceInputStopCallback: (() -> Unit)? = null
+    private var currentVoiceRecognizer: SpeechRecognizer? = null
+    private var voiceOverlayTimeoutRunnable: Runnable? = null
+
+    override fun onFinishInputView(finishingInput: Boolean) {
+        super.onFinishInputView(finishingInput)
+        dismissVoiceOverlayFully()
+    }
+
+    /** 键盘关闭或用户按返回时：强制关掉语音弹窗并取消识别，已上屏的字保留 */
+    private fun dismissVoiceOverlayFully() {
+        voiceInputStopCallback = null
+        voiceOverlayTimeoutRunnable?.let { mainHandler.removeCallbacks(it) }
+        voiceOverlayTimeoutRunnable = null
+        voiceWaveformView?.stopWaveform()
+        voiceWaveformView = null
+        voiceOverlayView?.let { v -> (v.parent as? ViewGroup)?.removeView(v) }
+        voiceOverlayView = null
+        try { currentVoiceRecognizer?.destroy() } catch (_: Exception) { }
+        currentVoiceRecognizer = null
+    }
+
+    private var voiceWaveformView: VoiceWaveformView? = null
 
     override fun onStartInputView(info: EditorInfo?, restarting: Boolean) {
         super.onStartInputView(info, restarting)
@@ -200,6 +247,10 @@ class MengBoxInputMethodService : InputMethodService() {
             // OPPO 等机型 insets 常延迟下发，再请求一次以便用真实高度替换回退 padding
             wrapper.postDelayed({ ViewCompat.requestApplyInsets(wrapper) }, 150)
         }
+        // 后台预加载语音模型，长按时多数情况已就绪，避免“加载模型中”等待
+        if (AsrAndroid.createNativeEngine().isAvailable() && !AsrAndroid.isModelLoaded()) {
+            Thread { AsrAndroid.loadModelFromAssets(this) }.start()
+        }
     }
 
     private fun bindKeyboard(view: View, type: String) {
@@ -215,6 +266,388 @@ class MengBoxInputMethodService : InputMethodService() {
     private fun keyHaptic(v: View?) {
         v?.isHapticFeedbackEnabled = true
         v?.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+    }
+
+    private val SAMPLE_RATE = 16000
+    private val LONG_PRESS_MS = 500L
+
+    /** 长按空格触发：先要麦克风权限，再震动、弹窗录音，用 ASR 转文字上屏 */
+    private fun onSpaceLongPress() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            try {
+                startActivity(Intent(this, VoicePermissionRequestActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                Toast.makeText(this, "请允许麦克风权限后长按空格使用语音输入", Toast.LENGTH_SHORT).show()
+            } catch (_: Exception) { }
+            return
+        }
+        try {
+            val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                (getSystemService(VIBRATOR_MANAGER_SERVICE) as? VibratorManager)?.defaultVibrator
+            } else {
+                @Suppress("DEPRECATION")
+                getSystemService(VIBRATOR_SERVICE) as? Vibrator
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator?.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE))
+            } else {
+                @Suppress("DEPRECATION")
+                vibrator?.vibrate(50)
+            }
+        } catch (_: Exception) { }
+        showVoiceInputOverlay()
+    }
+
+    /** 构建可用的显式语音识别服务组件列表（用于 bind 失败时重试）。顺序：系统默认设置 → 已知 Google → 已安装服务。 */
+    private fun buildExplicitRecognitionComponents(): List<ComponentName> {
+        val out = mutableListOf<ComponentName>()
+        val secureDefault = Settings.Secure.getString(contentResolver, "voice_recognition_service")
+        if (!secureDefault.isNullOrBlank()) {
+            ComponentName.unflattenFromString(secureDefault.trim())?.let { out.add(it) }
+        }
+        val known = listOf(
+            "com.google.android.googlequicksearchbox/com.google.android.voicesearch.serviceapi.GoogleRecognitionService",
+            "com.google.android.tts/com.google.android.tts.service.GoogleRecognitionService"
+        )
+        for (flatten in known) {
+            ComponentName.unflattenFromString(flatten)?.let { if (it !in out) out.add(it) }
+        }
+        val serviceIntent = Intent(RecognitionService.SERVICE_INTERFACE)
+        @Suppress("DEPRECATION")
+        val list = packageManager.queryIntentServices(serviceIntent, PackageManager.MATCH_ALL)
+        for (ri in list.orEmpty()) {
+            val cn = ComponentName(ri.serviceInfo.packageName, ri.serviceInfo.name)
+            if (cn !in out) out.add(cn)
+        }
+        return out
+    }
+
+    /**
+     * 先尝试系统默认（不传 Component），避免部分机型显式绑定被拒（bind to recognition service failed）。
+     * 若默认不可用，会在 onError(4) 时用 buildExplicitRecognitionComponents 列表逐个重试。
+     */
+    private fun createDefaultVoiceRecognizer(): SpeechRecognizer? {
+        return try {
+            SpeechRecognizer.createSpeechRecognizer(this)
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    private fun createVoiceRecognizerWithComponent(component: ComponentName): SpeechRecognizer? {
+        return try {
+            SpeechRecognizer.createSpeechRecognizer(this, component)
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    /** 本地 .so 引擎：采集 PCM，松手后显示加载、本地识别，成功上屏或 Toast 提示失败（详情打日志）。 */
+    private fun showVoiceInputOverlayWithNative(
+        overlay: View,
+        wrapper: FrameLayout,
+        waveformView: VoiceWaveformView,
+        partialText: TextView?,
+        engine: com.mengchuangjianghe.asr.AsrEngine
+    ) {
+        val sampleRate = SAMPLE_RATE
+        val channelConfig = AudioFormat.CHANNEL_IN_MONO
+        val audioFormat = AudioFormat.ENCODING_PCM_16BIT
+        val minBuf = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat)
+        if (minBuf <= 0) {
+            waveformView.stopWaveform()
+            voiceWaveformView = null
+            wrapper.removeView(overlay)
+            voiceOverlayView = null
+            Toast.makeText(this, "无法初始化录音", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val buffer = ByteArrayOutputStream()
+        val lock = Any()
+        val stopFlag = AtomicBoolean(false)
+        var recordThread: Thread? = null
+        val progressBar = overlay.findViewById<View>(R.id.voice_loading)
+        fun dismissOverlayView() {
+            voiceInputStopCallback = null
+            voiceOverlayTimeoutRunnable?.let { mainHandler.removeCallbacks(it) }
+            voiceOverlayTimeoutRunnable = null
+            stopFlag.set(true)
+            recordThread?.join(1500)
+            voiceWaveformView?.stopWaveform()
+            voiceWaveformView = null
+            if (overlay.parent != null) wrapper.removeView(overlay)
+            voiceOverlayView = null
+        }
+        fun removeOverlay() {
+            dismissOverlayView()
+        }
+        voiceInputStopCallback = {
+            voiceInputStopCallback = null
+            voiceOverlayTimeoutRunnable?.let { mainHandler.removeCallbacks(it) }
+            voiceOverlayTimeoutRunnable = null
+            stopFlag.set(true)
+            mainHandler.post {
+                waveformView.stopWaveform()
+                waveformView.visibility = View.GONE
+                progressBar.visibility = View.VISIBLE
+                partialText?.text = "识别中，请稍候…"
+            }
+            Thread {
+                recordThread?.join(1500)
+                val pcm: ByteArray = synchronized(lock) { buffer.toByteArray() }
+                var toCommit = ""
+                var failReason: String? = null
+                if (pcm.isEmpty()) {
+                    failReason = "pcm empty"
+                } else {
+                    try {
+                        val result = engine.recognize(pcm, sampleRate)
+                        toCommit = if (result.text.isNotBlank()) TextRefiner.refine(result.text) else ""
+                        if (toCommit.isEmpty()) failReason = "recognize returned empty"
+                    } catch (e: Exception) {
+                        failReason = e.message ?: e.toString()
+                        android.util.Log.e("MengBoxIME", "voice recognize failed", e)
+                    }
+                }
+                mainHandler.post {
+                    removeOverlay()
+                    if (toCommit.isNotBlank()) {
+                        commitText(toCommit)
+                    } else {
+                        val msg = if (pcm.isEmpty()) "没有识别到任何声音" else "识别失败"
+                        Toast.makeText(this@MengBoxInputMethodService, msg, Toast.LENGTH_SHORT).show()
+                        if (failReason != null) android.util.Log.d("MengBoxIME", "voice result: $failReason")
+                    }
+                }
+            }.start()
+        }
+        voiceOverlayTimeoutRunnable = Runnable {
+            voiceOverlayTimeoutRunnable = null
+            if (voiceOverlayView == overlay) {
+                removeOverlay()
+                mainHandler.post {
+                    Toast.makeText(this@MengBoxInputMethodService, "语音输入超时", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        mainHandler.postDelayed(voiceOverlayTimeoutRunnable!!, 20000)
+        try {
+            val recorder = AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, minBuf * 2)
+            if (recorder.state != AudioRecord.STATE_INITIALIZED) {
+                recorder.release()
+                waveformView.stopWaveform()
+                wrapper.removeView(overlay)
+                voiceOverlayView = null
+                voiceWaveformView = null
+                Toast.makeText(this, "无法启动录音", Toast.LENGTH_SHORT).show()
+                return
+            }
+            recorder.startRecording()
+            recordThread = Thread {
+                val buf = ByteArray(minBuf)
+                while (!stopFlag.get()) {
+                    val n = recorder.read(buf, 0, buf.size)
+                    if (n > 0) synchronized(lock) { buffer.write(buf, 0, n) }
+                }
+                try { recorder.stop(); recorder.release() } catch (_: Exception) { }
+            }
+            recordThread?.start()
+        } catch (e: Exception) {
+            waveformView.stopWaveform()
+            wrapper.removeView(overlay)
+            voiceOverlayView = null
+            voiceWaveformView = null
+            Toast.makeText(this, "录音失败: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /** 使用系统语音识别（真实识别），边说边转 + 松手后上屏。先试默认，bind 失败时用显式组件列表重试。优先走打包在 APK 内的本地 .so 引擎（不依赖系统）。 */
+    private fun showVoiceInputOverlay() {
+        val wrapper = keyboardWrapperView as? FrameLayout ?: return
+        dismissVoiceOverlayFully()
+        val overlay = layoutInflater.inflate(R.layout.voice_input_overlay, wrapper, false)
+        voiceOverlayView = overlay
+        val waveformView = overlay.findViewById<VoiceWaveformView>(R.id.voice_waveform)
+        voiceWaveformView = waveformView
+        val partialText = overlay.findViewById<TextView>(R.id.voice_partial_text)
+        wrapper.addView(overlay, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
+        waveformView.startWaveform()
+        val nativeEngine = AsrAndroid.createNativeEngine()
+        if (nativeEngine.isAvailable()) {
+            if (AsrAndroid.isModelLoaded()) {
+                showVoiceInputOverlayWithNative(overlay, wrapper, waveformView, partialText, nativeEngine)
+            } else {
+                // 模型未加载：先显示“加载中”，在后台加载，完成后再开始录音，避免主线程卡顿
+                waveformView.visibility = View.GONE
+                val progressBar = overlay.findViewById<View>(R.id.voice_loading)
+                progressBar.visibility = View.VISIBLE
+                partialText?.text = "加载模型中…"
+                voiceInputStopCallback = {
+                    voiceInputStopCallback = null
+                    if (voiceOverlayView == overlay) {
+                        voiceWaveformView?.stopWaveform()
+                        voiceWaveformView = null
+                        (overlay.parent as? ViewGroup)?.removeView(overlay)
+                        voiceOverlayView = null
+                        Toast.makeText(this@MengBoxInputMethodService, "请稍候再次长按空格说话", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                Thread {
+                    AsrAndroid.loadModelFromAssets(this@MengBoxInputMethodService)
+                    mainHandler.post {
+                        if (voiceOverlayView != overlay) return@post
+                        voiceInputStopCallback = null
+                        progressBar.visibility = View.GONE
+                        partialText?.text = ""
+                        waveformView.visibility = View.VISIBLE
+                        waveformView.startWaveform()
+                        showVoiceInputOverlayWithNative(overlay, wrapper, waveformView, partialText, nativeEngine)
+                    }
+                }.start()
+            }
+            return
+        }
+        val explicitComponents = buildExplicitRecognitionComponents()
+        var explicitIndex = -1
+        fun nextRecognizer(): SpeechRecognizer? {
+            explicitIndex++
+            if (explicitIndex == 0) return createDefaultVoiceRecognizer()
+            val idx = explicitIndex - 1
+            if (idx < explicitComponents.size) return createVoiceRecognizerWithComponent(explicitComponents[idx])
+            return null
+        }
+        var recognizer = nextRecognizer()
+        if (recognizer == null) {
+            voiceWaveformView?.stopWaveform()
+            voiceWaveformView = null
+            (overlay.parent as? ViewGroup)?.removeView(overlay)
+            voiceOverlayView = null
+            Toast.makeText(this, "未检测到语音识别服务，请在 设置→语言与输入→语音输入 中安装并选择（如 Google）", Toast.LENGTH_LONG).show()
+            return
+        }
+        currentVoiceRecognizer = recognizer
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, "zh-CN")
+            putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
+        }
+        fun dismissOverlayView() {
+            voiceInputStopCallback = null
+            voiceOverlayTimeoutRunnable?.let { mainHandler.removeCallbacks(it) }
+            voiceOverlayTimeoutRunnable = null
+            voiceWaveformView?.stopWaveform()
+            voiceWaveformView = null
+            if (overlay.parent != null) wrapper.removeView(overlay)
+            voiceOverlayView = null
+        }
+        fun removeOverlay() {
+            dismissOverlayView()
+            try { currentVoiceRecognizer?.destroy() } catch (_: Exception) { }
+            currentVoiceRecognizer = null
+        }
+        val listener = object : RecognitionListener {
+            override fun onReadyForSpeech(params: Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(rmsdB: Float) {}
+            override fun onBufferReceived(buffer: ByteArray?) {}
+            override fun onEndOfSpeech() {}
+            override fun onError(error: Int) {
+                mainHandler.post {
+                    if (error == 4 && voiceOverlayView == overlay) {
+                        try { currentVoiceRecognizer?.destroy() } catch (_: Exception) { }
+                        currentVoiceRecognizer = null
+                        val next = nextRecognizer()
+                        if (next != null) {
+                            currentVoiceRecognizer = next
+                            next.setRecognitionListener(this)
+                            next.startListening(intent)
+                            return@post
+                        }
+                        Toast.makeText(
+                            this@MengBoxInputMethodService,
+                            "无法使用语音识别。请在 设置→语言与输入→语音输入 中选择一项（如 Google）；部分机型需在 默认应用 中设置，或限制第三方输入法调用。",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else if (error != 5 && error != 7) {
+                        val msg = when (error) {
+                            2 -> "网络错误，请检查网络后重试"
+                            3 -> "录音错误，请检查麦克风权限"
+                            else -> "识别错误，请稍后重试"
+                        }
+                        Toast.makeText(this@MengBoxInputMethodService, msg, Toast.LENGTH_SHORT).show()
+                    }
+                    removeOverlay()
+                }
+            }
+            override fun onResults(results: Bundle?) {
+                val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                val text = matches?.firstOrNull()?.trim() ?: ""
+                val toCommit = if (text.isNotBlank()) TextRefiner.refine(text) else ""
+                mainHandler.post {
+                    if (toCommit.isNotBlank()) commitText(toCommit)
+                    removeOverlay()
+                }
+            }
+            override fun onPartialResults(partialResults: Bundle?) {
+                val matches = partialResults?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+                val part = matches?.firstOrNull()?.trim() ?: ""
+                mainHandler.post { partialText?.text = part }
+            }
+            override fun onEvent(type: Int, data: Bundle?) {}
+        }
+        recognizer.setRecognitionListener(listener)
+        voiceInputStopCallback = {
+            voiceInputStopCallback = null
+            dismissOverlayView()
+            try { currentVoiceRecognizer?.stopListening() } catch (_: Exception) { }
+        }
+        voiceOverlayTimeoutRunnable = Runnable {
+            voiceOverlayTimeoutRunnable = null
+            if (voiceOverlayView == overlay) {
+                removeOverlay()
+                mainHandler.post {
+                    Toast.makeText(
+                        this@MengBoxInputMethodService,
+                        "未检测到语音识别服务，请在 设置→语言与输入→语音输入 中安装并选择（如 Google）",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+        mainHandler.postDelayed(voiceOverlayTimeoutRunnable!!, 20000)
+        mainHandler.post { recognizer.startListening(intent) }
+    }
+
+    private val mainHandler = Handler(Looper.getMainLooper())
+
+    /** 为空格键设置：点击原有逻辑，长按触发语音输入 */
+    private fun setSpaceLongPress(btn: Button?, onShortClick: (View) -> Unit) {
+        btn ?: return
+        var longPressTriggered = false
+        var longPressRunnable: Runnable? = null
+        btn.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    longPressTriggered = false
+                    longPressRunnable = Runnable {
+                        longPressTriggered = true
+                        onSpaceLongPress()
+                    }
+                    btn.postDelayed(longPressRunnable!!, LONG_PRESS_MS)
+                    false
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    longPressRunnable?.let { btn.removeCallbacks(it) }
+                    if (longPressTriggered) {
+                        voiceInputStopCallback?.invoke()
+                    } else {
+                        onShortClick(v)
+                    }
+                    false
+                }
+                else -> false
+            }
+        }
     }
 
     /** 先删掉正在组字的拼音（输入框里的 ni），再上屏候选，避免出现 ni你 */
@@ -342,7 +775,7 @@ class MengBoxInputMethodService : InputMethodService() {
             keyHaptic(it)
             // 清除书写区，后续可接 Canvas 重绘
         }
-        view.findViewById<Button>(R.id.handwrite_space)?.setOnClickListener { keyHaptic(it); commitText(" ") }
+        setSpaceLongPress(view.findViewById(R.id.handwrite_space)) { keyHaptic(it); commitText(" ") }
         view.findViewById<Button>(R.id.handwrite_enter)?.setOnClickListener { keyHaptic(it); commitText("\n") }
         view.findViewById<Button>(R.id.handwrite_comma)?.setOnClickListener { keyHaptic(it); commitText(",") }
         view.findViewById<Button>(R.id.handwrite_period)?.setOnClickListener { keyHaptic(it); commitText(".") }
@@ -356,7 +789,7 @@ class MengBoxInputMethodService : InputMethodService() {
             val id = resources.getIdentifier("stroke_${i + 1}", "id", packageName)
             if (id != 0) view.findViewById<Button>(id)?.setOnClickListener { keyHaptic(it); commitText(s) }
         }
-        view.findViewById<Button>(R.id.stroke_space)?.setOnClickListener { keyHaptic(it); commitText(" ") }
+        setSpaceLongPress(view.findViewById(R.id.stroke_space)) { keyHaptic(it); commitText(" ") }
         view.findViewById<Button>(R.id.stroke_enter)?.setOnClickListener { keyHaptic(it); commitText("\n") }
         view.findViewById<Button>(R.id.stroke_comma)?.setOnClickListener { keyHaptic(it); commitText(",") }
         view.findViewById<Button>(R.id.stroke_period)?.setOnClickListener { keyHaptic(it); commitText(".") }
@@ -611,7 +1044,7 @@ class MengBoxInputMethodService : InputMethodService() {
             keyHaptic(it)
             showSymbolCandidates()
         }
-        view.findViewById<Button>(R.id.k9_space)?.setOnClickListener { keyHaptic(it); commitText(" ") }
+        setSpaceLongPress(view.findViewById(R.id.k9_space)) { keyHaptic(it); commitText(" ") }
         view.findViewById<Button>(R.id.k9_123)?.setOnClickListener { keyHaptic(it) }
         view.findViewById<Button>(R.id.k9_zh_en)?.setOnClickListener { keyHaptic(it) }
     }
@@ -1103,8 +1536,8 @@ class MengBoxInputMethodService : InputMethodService() {
             }
         }
         view.findViewById<Button>(R.id.k26_space)?.let { btn ->
-            btn.setOnClickListener {
-                keyHaptic(btn)
+            setSpaceLongPress(btn) { v ->
+                keyHaptic(v)
                 if (!isEnglishMode26 && pinyinBuffer26.isNotEmpty()) {
                     val pinyin = pinyinBuffer26.toString()
                     var baseCands = PinyinDict.getPinyinCandidates(pinyin)
