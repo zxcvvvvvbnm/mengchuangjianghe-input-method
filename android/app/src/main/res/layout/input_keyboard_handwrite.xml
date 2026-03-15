@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 手写：与 26 键同背景同高；中间 26 字母区改为书写空白区，底部一排一致 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/keyboard_container_top_rounded">
+
+    <LinearLayout
+        android:id="@+id/handwrite_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/candidate_bar_unified"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:background="#FF2D2D2D">
+
+            <!-- 中间书写区（替代 26 字母） -->
+            <View
+                android:id="@+id/handwrite_canvas"
+                android:layout_width="match_parent"
+                android:layout_height="132dp"
+                android:minHeight="100dp"
+                android:background="#FF3A3A3A" />
+
+            <!-- 底部一排：与 26 键一致 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <Button android:id="@+id/handwrite_123" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="123" android:textSize="12sp" />
+                <Button android:id="@+id/handwrite_comma" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="," />
+                <Button android:id="@+id/handwrite_space" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="2" android:layout_marginHorizontal="2dp" android:text="" />
+                <Button android:id="@+id/handwrite_period" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="." />
+                <Button android:id="@+id/handwrite_clear" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="清除" android:textSize="11sp" />
+                <Button android:id="@+id/handwrite_enter" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="换行" android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/k26_overlay_keyboard_switch" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include layout="@layout/k26_overlay_clipboard" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

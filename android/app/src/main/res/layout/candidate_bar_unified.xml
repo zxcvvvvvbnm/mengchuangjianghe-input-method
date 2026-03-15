@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 统一候选栏 56dp：拼音行 + 候选行 + 右侧向下箭头/叉号。无候选时两图标放在居中层，整栏垂直居中不裁切 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="4dp"
+    android:background="#FF2D2D2D"
+    android:clipChildren="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <!-- 底层：拼音行 + 候选列表 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/k26_pinyin_row"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:gravity="center_vertical"
+                android:textColor="#90FFFFFF"
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:visibility="invisible" />
+            <HorizontalScrollView
+                android:id="@+id/k26_candidate_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none"
+                android:fillViewport="true"
+                android:clipChildren="false">
+                <LinearLayout
+                    android:id="@+id/k26_candidate_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical" />
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <!-- 居中层：无候选时放两图标，整栏垂直居中，可“顶到上面”不裁切 -->
+        <LinearLayout
+            android:id="@+id/k26_candidate_empty_chips"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:visibility="gone" />
+    </FrameLayout>
+
+        <!-- 右侧：向下箭头/叉号，与候选汉字垂直居中对齐（拼音行在上，箭头在汉字正中央） -->
+        <ImageButton
+            android:id="@+id/k26_candidate_expand_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@null"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

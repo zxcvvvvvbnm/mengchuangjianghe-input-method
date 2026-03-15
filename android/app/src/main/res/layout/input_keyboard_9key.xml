@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 9键：与26键一样「一行一排」结构，每行一个水平 LinearLayout，左键+中间3键+右键，避免左右被系统裁掉 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/keyboard_container_top_rounded">
+
+    <LinearLayout
+        android:id="@+id/k9_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 候选栏固定 56dp，与 26 键一致，有字无字都不闪 -->
+        <include
+            layout="@layout/candidate_bar_unified"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <!-- 九宫格展开单字选择区：与 26 键同结构，6 字一行竖滑，底排第6格为删除键 -->
+        <LinearLayout
+            android:id="@+id/k26_expand_picker_container"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"
+            android:background="#FF2D2D2D"
+            android:visibility="gone">
+
+            <ScrollView
+                android:id="@+id/k26_expand_picker_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scrollbars="none"
+                android:fillViewport="false">
+                <LinearLayout
+                    android:id="@+id/k26_expand_picker_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="4dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="8dp" />
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp"
+                android:gravity="center_vertical">
+                <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+                <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+                <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+                <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+                <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+                <Button
+                    android:id="@+id/k26_expand_picker_delete"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="⌫"
+                    android:textSize="18sp"
+                    style="@style/Key26Func" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/k9_keys_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:background="#FF2D2D2D">
+
+            <!-- 第1行：, | @# ABC DEF | 退格 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <Button android:id="@+id/k9_sym_comma" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="," android:textSize="14sp" />
+                <Button android:id="@+id/k9_1" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="@#" android:textSize="12sp" />
+                <Button android:id="@+id/k9_2" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="ABC" android:textSize="11sp" />
+                <Button android:id="@+id/k9_3" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="DEF" android:textSize="11sp" />
+                <Button android:id="@+id/k9_backspace" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="⌫" android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- 第2行：。 | GHI JKL MNO | 重输 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <Button android:id="@+id/k9_sym_period_cn" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="。" android:textSize="14sp" />
+                <Button android:id="@+id/k9_4" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="GHI" android:textSize="11sp" />
+                <Button android:id="@+id/k9_5" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="JKL" android:textSize="11sp" />
+                <Button android:id="@+id/k9_6" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="MNO" android:textSize="11sp" />
+                <Button android:id="@+id/k9_retype" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="重输" android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- 第3行：? | PQRS TUV WXYZ | 换行 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <Button android:id="@+id/k9_sym_question" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="?" android:textSize="14sp" />
+                <Button android:id="@+id/k9_7" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="PQRS" android:textSize="10sp" />
+                <Button android:id="@+id/k9_8" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="TUV" android:textSize="11sp" />
+                <Button android:id="@+id/k9_9" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="1" android:layout_marginHorizontal="2dp" android:text="WXYZ" android:textSize="10sp" />
+                <Button android:id="@+id/k9_enter" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="换行" android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- 底排：符号、123、空格、中/英（去掉感叹号整行，键盘变矮） -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <Button android:id="@+id/k9_bottom_sym" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.7" android:layout_marginHorizontal="2dp" android:text="符号" android:textSize="11sp" />
+                <Button android:id="@+id/k9_123" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="123" android:textSize="12sp" />
+                <Button android:id="@+id/k9_space" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="2" android:layout_marginHorizontal="2dp" android:text="" />
+                <Button android:id="@+id/k9_zh_en" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="中/英" android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/k26_overlay_keyboard_switch" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include layout="@layout/k26_overlay_clipboard" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

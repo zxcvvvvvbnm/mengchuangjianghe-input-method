@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 26键 全键盘：居中，每个键小圆角 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="48dp"
+    android:viewportWidth="120"
+    android:viewportHeight="48">
+    <!-- 第一行 10 键，小圆角 r=1 -->
+    <path android:pathData="M 8,1 L 15,1 Q 16,1 16,2 L 16,10 Q 16,11 15,11 L 8,11 Q 7,11 7,10 L 7,2 Q 7,1 8,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 19,1 L 26,1 Q 27,1 27,2 L 27,10 Q 27,11 26,11 L 19,11 Q 18,11 18,10 L 18,2 Q 18,1 19,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 30,1 L 37,1 Q 38,1 38,2 L 38,10 Q 38,11 37,11 L 30,11 Q 29,11 29,10 L 29,2 Q 29,1 30,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 41,1 L 48,1 Q 49,1 49,2 L 49,10 Q 49,11 48,11 L 41,11 Q 40,11 40,10 L 40,2 Q 40,1 41,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 52,1 L 59,1 Q 60,1 60,2 L 60,10 Q 60,11 59,11 L 52,11 Q 51,11 51,10 L 51,2 Q 51,1 52,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 63,1 L 70,1 Q 71,1 71,2 L 71,10 Q 71,11 70,11 L 63,11 Q 62,11 62,10 L 62,2 Q 62,1 63,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 74,1 L 81,1 Q 82,1 82,2 L 82,10 Q 82,11 81,11 L 74,11 Q 73,11 73,10 L 73,2 Q 73,1 74,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 85,1 L 92,1 Q 93,1 93,2 L 93,10 Q 93,11 92,11 L 85,11 Q 84,11 84,10 L 84,2 Q 84,1 85,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 96,1 L 103,1 Q 104,1 104,2 L 104,10 Q 104,11 103,11 L 96,11 Q 95,11 95,10 L 95,2 Q 95,1 96,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 107,1 L 114,1 Q 115,1 115,2 L 115,10 Q 115,11 114,11 L 107,11 Q 106,11 106,10 L 106,2 Q 106,1 107,1 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <!-- 第二行 9 键 -->
+    <path android:pathData="M 12,14 L 19,14 Q 20,14 20,15 L 20,23 Q 20,24 19,24 L 12,24 Q 11,24 11,23 L 11,15 Q 11,14 12,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 23,14 L 30,14 Q 31,14 31,15 L 31,23 Q 31,24 30,24 L 23,24 Q 22,24 22,23 L 22,15 Q 22,14 23,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 34,14 L 41,14 Q 42,14 42,15 L 42,23 Q 42,24 41,24 L 34,24 Q 33,24 33,23 L 33,15 Q 33,14 34,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 45,14 L 52,14 Q 53,14 53,15 L 53,23 Q 53,24 52,24 L 45,24 Q 44,24 44,23 L 44,15 Q 44,14 45,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 56,14 L 63,14 Q 64,14 64,15 L 64,23 Q 64,24 63,24 L 56,24 Q 55,24 55,23 L 55,15 Q 55,14 56,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 67,14 L 74,14 Q 75,14 75,15 L 75,23 Q 75,24 74,24 L 67,24 Q 66,24 66,23 L 66,15 Q 66,14 67,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 78,14 L 85,14 Q 86,14 86,15 L 86,23 Q 86,24 85,24 L 78,24 Q 77,24 77,23 L 77,15 Q 77,14 78,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 89,14 L 96,14 Q 97,14 97,15 L 97,23 Q 97,24 96,24 L 89,24 Q 88,24 88,23 L 88,15 Q 88,14 89,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 100,14 L 107,14 Q 108,14 108,15 L 108,23 Q 108,24 107,24 L 100,24 Q 99,24 99,23 L 99,15 Q 99,14 100,14 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <!-- 第三行 7 键（右移与上两排对齐，不偏左） -->
+    <path android:pathData="M 27,27 L 34,27 Q 35,27 35,28 L 35,36 Q 35,37 34,37 L 27,37 Q 26,37 26,36 L 26,28 Q 26,27 27,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 38,27 L 45,27 Q 46,27 46,28 L 46,36 Q 46,37 45,37 L 38,37 Q 37,37 37,36 L 37,28 Q 37,27 38,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 49,27 L 56,27 Q 57,27 57,28 L 57,36 Q 57,37 56,37 L 49,37 Q 48,37 48,36 L 48,28 Q 48,27 49,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 60,27 L 67,27 Q 68,27 68,28 L 68,36 Q 68,37 67,37 L 60,37 Q 59,37 59,36 L 59,28 Q 59,27 60,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 71,27 L 78,27 Q 79,27 79,28 L 79,36 Q 79,37 78,37 L 71,37 Q 70,37 70,36 L 70,28 Q 70,27 71,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 82,27 L 89,27 Q 90,27 90,28 L 90,36 Q 90,37 89,37 L 82,37 Q 81,37 81,36 L 81,28 Q 81,27 82,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 93,27 L 100,27 Q 101,27 101,28 L 101,36 Q 101,37 100,37 L 93,37 Q 92,37 92,36 L 92,28 Q 92,27 93,27 Z" android:fillColor="#FFE0E0E0" android:strokeWidth="0.5" android:strokeColor="#FFBDBDBD" />
+</vector>

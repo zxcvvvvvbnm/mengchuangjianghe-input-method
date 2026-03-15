@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 笔画：与 26 键同背景同高、同候选区；中间为 3x3 笔画键，底部一排一致 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/keyboard_container_top_rounded">
+
+    <LinearLayout
+        android:id="@+id/stroke_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/candidate_bar_unified"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="4dp"
+            android:background="#FF2D2D2D">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button android:id="@+id/stroke_1" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="一" android:textSize="18sp" />
+                <Button android:id="@+id/stroke_2" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="丨" android:textSize="18sp" />
+                <Button android:id="@+id/stroke_3" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="丿" android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button android:id="@+id/stroke_4" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="丶" android:textSize="18sp" />
+                <Button android:id="@+id/stroke_5" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="フ" android:textSize="18sp" />
+                <Button android:id="@+id/stroke_6" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="乛" android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button android:id="@+id/stroke_7" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="亅" android:textSize="18sp" />
+                <Button android:id="@+id/stroke_8" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="𠃍" android:textSize="18sp" />
+                <Button android:id="@+id/stroke_9" style="@style/Key26Letter" android:layout_marginHorizontal="2dp" android:text="𡿨" android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <Button android:id="@+id/stroke_123" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="123" android:textSize="12sp" />
+                <Button android:id="@+id/stroke_comma" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="," />
+                <Button android:id="@+id/stroke_space" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="2" android:layout_marginHorizontal="2dp" android:text="" />
+                <Button android:id="@+id/stroke_period" style="@style/Key26Letter" android:layout_width="0dp" android:layout_weight="0.6" android:layout_marginHorizontal="2dp" android:text="." />
+                <Button android:id="@+id/stroke_zh_en" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="中/英" android:textSize="11sp" />
+                <Button android:id="@+id/stroke_enter" style="@style/Key26Func" android:layout_width="0dp" android:layout_weight="0.9" android:layout_marginHorizontal="2dp" android:text="换行" android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/k26_overlay_keyboard_switch" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <include layout="@layout/k26_overlay_clipboard" android:layout_width="match_parent" android:layout_height="match_parent" />
+</FrameLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 9键 九宫格：横向矩形，3x3 键，每个键小圆角 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="50dp"
+    android:viewportWidth="100"
+    android:viewportHeight="50">
+    <!-- 9 个键，小圆角 r=2 -->
+    <path android:pathData="M 4,2 L 29,2 Q 31,2 31,4 L 31,13 Q 31,15 29,15 L 4,15 Q 2,15 2,13 L 2,4 Q 2,2 4,2 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 36,2 L 61,2 Q 63,2 63,4 L 63,13 Q 63,15 61,15 L 36,15 Q 34,15 34,13 L 34,4 Q 34,2 36,2 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 68,2 L 93,2 Q 95,2 95,4 L 95,13 Q 95,15 93,15 L 68,15 Q 66,15 66,13 L 66,4 Q 66,2 68,2 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 4,18 L 29,18 Q 31,18 31,20 L 31,29 Q 31,31 29,31 L 4,31 Q 2,31 2,29 L 2,20 Q 2,18 4,18 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 36,18 L 61,18 Q 63,18 63,20 L 63,29 Q 63,31 61,31 L 36,31 Q 34,31 34,29 L 34,20 Q 34,18 36,18 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 68,18 L 93,18 Q 95,18 95,20 L 95,29 Q 95,31 93,31 L 68,31 Q 66,31 66,29 L 66,20 Q 66,18 68,18 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 4,34 L 29,34 Q 31,34 31,36 L 31,45 Q 31,47 29,47 L 4,47 Q 2,47 2,45 L 2,36 Q 2,34 4,34 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 36,34 L 61,34 Q 63,34 63,36 L 63,45 Q 63,47 61,47 L 36,47 Q 34,47 34,45 L 34,36 Q 34,34 36,34 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+    <path android:pathData="M 68,34 L 93,34 Q 95,34 95,36 L 95,45 Q 95,47 93,47 L 68,47 Q 66,47 66,45 L 66,36 Q 66,34 68,34 Z" android:fillColor="#FFE8E8E8" android:strokeWidth="0.8" android:strokeColor="#FFBDBDBD" />
+</vector>

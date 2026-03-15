@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 圆角键盘图标：圆角矩形 + 中间四个点 + 底部横条 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="20dp"
+    android:viewportWidth="28"
+    android:viewportHeight="20">
+    <path
+        android:pathData="M2,2h24a2,2 0,0 1,2 2v10a2,2 0,0 1,-2 2H2a2,2 0,0 1,-2 -2V4a2,2 0,0 1,2 -2z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#FFFFFF"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M6,8m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M12,8m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M18,8m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M24,8m-1,0a1,1 0,1 1,2 0a1,1 0,1 1,-2 0"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:pathData="M5,16h18v1.2h-18z"
+        android:fillColor="#FFFFFF" />
+</vector>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 换键盘面板：与候选区同背景，4 张圆角卡片 + 右上角对勾确认 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/k26_keyboard_switch_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF2D2D2D"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- 右上角对勾 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+            <Button
+                android:id="@+id/k26_switch_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/key_bg_26_active"
+                android:text="✓"
+                android:textColor="#FFFFFFFF"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <!-- 2x2 键盘类型卡片 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <FrameLayout
+                    android:id="@+id/k26_ime_card_9key"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_card_rounded"
+                    android:padding="6dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/preview_9key"
+                        android:contentDescription="@string/keyboard_style_9key" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="@string/keyboard_style_9key"
+                        android:textSize="12sp"
+                        android:textColor="#FF000000" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/k26_ime_card_26key"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_card_rounded"
+                    android:padding="6dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/preview_26key"
+                        android:contentDescription="@string/keyboard_style_26key" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="@string/keyboard_style_26key"
+                        android:textSize="12sp"
+                        android:textColor="#FF000000" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <FrameLayout
+                    android:id="@+id/k26_ime_card_handwrite"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_card_rounded"
+                    android:padding="6dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/preview_handwrite"
+                        android:contentDescription="@string/keyboard_style_handwrite" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="@string/keyboard_style_handwrite"
+                        android:textSize="12sp"
+                        android:textColor="#FF000000" />
+                </FrameLayout>
+                <FrameLayout
+                    android:id="@+id/k26_ime_card_stroke"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_card_rounded"
+                    android:padding="6dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/preview_stroke"
+                        android:contentDescription="@string/keyboard_style_stroke" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:text="@string/keyboard_style_stroke"
+                        android:textSize="12sp"
+                        android:textColor="#FF000000" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

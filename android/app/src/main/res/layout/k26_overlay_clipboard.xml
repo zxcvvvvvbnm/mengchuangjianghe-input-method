@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 剪贴板面板：标题行 + 右侧关闭叉号，可上下滑动列表，空时显示「暂无内容」 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/k26_clipboard_overlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF2D2D2D"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 标题行 + 右侧叉号关闭 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/clipboard_title"
+                android:textColor="#FFFFFFFF"
+                android:textSize="16sp" />
+            <Button
+                android:id="@+id/k26_clipboard_close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/key_bg_26"
+                android:text="✕"
+                android:textColor="#FFFFFFFF"
+                android:textSize="18sp"
+                android:padding="0dp" />
+        </LinearLayout>
+
+        <!-- 内容区：有内容时显示列表，无内容时显示「暂无内容」 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <ScrollView
+                android:id="@+id/k26_clipboard_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:fillViewport="true">
+                <LinearLayout
+                    android:id="@+id/k26_clipboard_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp" />
+            </ScrollView>
+            <TextView
+                android:id="@+id/k26_clipboard_empty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/clipboard_empty"
+                android:textColor="#90FFFFFF"
+                android:textSize="14sp" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

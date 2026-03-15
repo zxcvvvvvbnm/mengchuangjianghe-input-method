@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">萌创匠盒输入法</string>
+
+    <!-- 引导页胶囊按钮（与常见输入法一致） -->
+    <string name="pill_enable_ime">启用萌创匠盒输入法</string>
+    <string name="pill_switch_ime">切换萌创匠盒输入法</string>
+
+    <!-- 键盘类型选择 -->
+    <string name="keyboard_style_9key">9键</string>
+    <string name="keyboard_style_26key">26键</string>
+    <string name="keyboard_style_handwrite">手写</string>
+    <string name="keyboard_style_stroke">笔画</string>
+    <string name="keyboard_style_confirm">确定</string>
+    <string name="clipboard_title">剪贴板</string>
+    <string name="clipboard_empty">暂无内容</string>
+
+    <!-- 首页 -->
+    <string name="home_title">萌创匠盒输入法</string>
+    <string name="home_subtitle">您正在使用萌创匠盒输入法</string>
+    <string name="home_search_hint">搜索皮肤</string>
+</resources>

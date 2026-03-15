@@ -1,0 +1,706 @@
+# 常用古诗精选、常用汉字、常用语句、常用成语（每行：拼音带声调数字 + 词，脚本会转为 pinyin_words 格式）
+# 以下为原始粘贴内容，保留 section 标记便于核对
+=== 古诗 先秦 ===
+guan1 guan1 ju1 jiu1 关关雎鸠
+zai4 he2 zhi1 zhou1 在河之洲
+yao2 tiao3 shu4 nv3 窈窕淑女
+jun1 zi3 hao3 qiu2 君子好逑
+jian1 jia1 cang1 cang1 蒹葭苍苍
+bai2 lu4 wei2 shuang1 白露为霜
+suo3 wei4 yi1 ren2 所谓伊人
+zai4 shui3 yi1 fang1 在水一方
+zhi1 wo3 zhe3 知我者
+wei4 wo3 xin1 you1 谓我心忧
+bu4 zhi1 wo3 zhe3 不知我者
+wei4 wo3 he2 qiu2 谓我何求
+tao2 zhi1 yao1 yao1 桃之夭夭
+zhuo2 zhuo2 qi2 hua1 灼灼其华
+zhi1 zi3 yu2 gui1 之子于归
+yi2 qi2 shi4 jia1 宜其室家
+yi4 ri4 bu2 jian4 一日不见
+ru2 san1 qiu1 xi1 如三秋兮
+qing1 qing1 zi3 jin1 青青子衿
+you1 you1 wo3 xin1 悠悠我心
+si3 sheng1 qi4 kuo4 死生契阔
+yu3 zi3 cheng2 shuo1 与子成说
+zhi2 zi3 zhi1 shou3 执子之手
+yu3 zi3 xie2 lao3 与子偕老
+qiao3 xiao4 qian4 xi1 巧笑倩兮
+mei3 mu4 pan4 xi1 美目盼兮
+tou2 wo3 yi1 mu4 tao2 投我以木桃
+bao4 zhi1 yi1 qiong2 yao2 报之以琼瑶
+fei3 bao4 ye3 匪报也
+yong3 yi3 wei2 hao3 ye3 永以为好也
+jin1 xi1 he2 xi1 今夕何夕
+jian4 ci3 liang2 ren2 见此良人
+xi1 wo3 wang3 yi3 昔我往矣
+yang3 liu3 yi1 yi1 杨柳依依
+jin1 wo3 lai2 si1 今我来思
+yu3 xue3 fei1 fei1 雨雪霏霏
+feng1 yu3 ru2 hui4 风雨如晦
+ji1 ming2 bu4 yi3 鸡鸣不已
+ji4 jian4 jun1 zi3 既见君子
+yun2 hu2 bu4 xi3 云胡不喜
+you3 fei3 jun1 zi3 有匪君子
+ru2 qie1 ru2 cuo1 如切如磋
+ru2 zhuo2 ru2 mo2 如琢如磨
+you1 you1 lu4 ming2 呦呦鹿鸣
+shi2 ye3 zhi1 ping2 食野之苹
+wo3 you3 jia1 bin1 我有嘉宾
+gu3 se4 chui1 sheng1 鼓瑟吹笙
+gao1 shan1 yang3 zhi3 高山仰止
+jing3 xing2 hang2 zhi3 景行行止
+=== 古诗 秦汉 ===
+shan1 wu2 ling2 山无陵
+jiang1 shui3 wei2 jie2 江水为竭
+dong1 lei2 zhen4 zhen4 冬雷震震
+xia4 yu3 xue3 夏雨雪
+tian1 di4 he2 天地合
+nai3 gan3 yu3 jun1 jue2 乃敢与君绝
+shao4 zhuang4 bu4 nu3 li4 少壮不努力
+lao3 da4 tu2 shang1 bei1 老大徒伤悲
+xiong2 tu4 jiao3 pu3 shuo1 雄兔脚扑朔
+ci2 tu4 yan3 mi2 li2 雌兔眼迷离
+shuang1 tu4 bang4 di4 zou3 双兔傍地走
+an1 neng2 bian4 wo3 shi4 xiong2 ci2 安能辨我是雄雌
+yuan4 de2 yi1 ren2 xin1 愿得一人心
+bai2 shou3 bu4 xiang1 li2 白首不相离
+si1 jun1 ling4 ren2 lao3 思君令人老
+sui4 yue4 hu4 yi3 wan4 岁月忽已晚
+dui4 jiu3 dang1 ge1 对酒当歌
+ren2 sheng1 ji1 he2 人生几何
+pi4 ru2 zhao1 lu4 譬如朝露
+qu4 ri4 ku3 duo1 去日苦多
+lao3 ji4 fu4 li4 老骥伏枥
+zhi4 zai4 qian1 li3 志在千里
+lie4 shi4 mu4 nian2 烈士暮年
+zhuang4 xin1 bu4 yi3 壮心不已
+qiu1 feng1 qi3 xi1 bai2 yun2 fei1 秋风起兮白云飞
+cao3 mu4 huang2 luo4 xi1 yan4 nan2 gui1 草木黄落兮雁南归
+shu4 yu4 jing4 er2 feng1 bu4 zhi3 树欲静而风不止
+zi3 yu4 yang3 er2 qin1 bu4 dai4 子欲养而亲不待
+jun1 dang1 zuo4 pan2 shi2 君当作磐石
+qie3 dang1 zuo4 pu3 wei3 妾当作蒲苇
+pu3 wei3 ren1 ru2 si1 蒲苇纫如丝
+pan2 shi2 wu2 zhuai3 yi2 磐石无转移
+=== 古诗 魏晋南北朝 ===
+cai3 ju3 dong1 li2 xia4 采菊东篱下
+you1 ran2 jian4 nan2 shan1 悠然见南山
+shao4 wu2 shi4 su4 yun4 少无适俗韵
+xing4 ben3 ai4 qiu1 shan1 性本爱丘山
+sheng4 nian2 bu4 zhong4 lai2 盛年不重来
+yi1 ri4 nan2 zai4 chen2 一日难再晨
+ji2 shi2 dang1 mian3 li4 及时当勉励
+sui4 yue4 bu4 dai4 ren2 岁月不待人
+ben3 shi4 tong2 gen1 sheng1 本是同根生
+xiang1 jian4 he2 tai4 ji2 相煎何太急
+chen2 ben3 bu4 yi1 臣本布衣
+gong1 geng3 yu2 nan2 yang2 躬耕于南阳
+gou3 quan2 xing4 ming4 yu2 luan4 shi4 苟全性命于乱世
+bu4 qiu2 wen2 da2 yu2 zhu1 hou2 不求闻达于诸侯
+tian1 cang1 cang1 天苍苍
+ye3 mang2 mang2 野茫茫
+feng1 chui1 cao3 di1 jian4 niu2 yang2 风吹草低见牛羊
+jiang1 nan2 wu2 suo3 you3 江南无所有
+liao2 zeng4 yi1 zhi1 chun1 聊赠一枝春
+=== 唐朝李白 ===
+ru4 wo3 xiang1 si1 men2 入我相思门
+zhi1 wo3 xiang1 si1 ku3 知我相思苦
+wei1 lou2 gao1 bai3 chi3 危楼高百尺
+shou3 ke3 zhai1 xing1 chen2 手可摘星辰
+hua1 jian1 yi1 hu2 jiu3 花间一壶酒
+du2 zhuo2 wu2 xiang4 qin1 独酌无相亲
+xiang1 kan4 bu2 yan4 相看两不厌
+zhi3 you3 jing4 ting2 shan1 只有敬亭山
+xiao3 shi2 bu4 shi4 yue4 小时不识月
+hu1 zuo4 bai2 yu4 pan2 呼作白玉盘
+chang2 feng1 po4 lang3 hui4 you3 shi2 长风破浪会有时
+zhi2 gua4 yun2 fan1 ji4 cang1 hai3 直挂云帆济沧海
+chou1 dao1 duan4 shui3 shui3 geng4 liu2 抽刀断水水更流
+ju3 bei1 xiao1 chou2 chou2 geng4 chou2 举杯销愁愁更愁
+yun2 xiang3 yi1 chang2 hua1 xiang3 rong2 云想衣裳花想容
+chun1 feng1 fu2 jian4 lu4 hua2 nong2 春风拂槛露华浓
+yang3 tian1 da4 xiao4 chu1 men2 qu4 仰天大笑出门去
+wo3 bei4 qi3 shi4 peng2 hao1 ren2 我辈岂是蓬蒿人
+jin1 ren2 bu2 jian4 gu3 shi2 yue4 今人不见古时月
+jin1 yue4 zeng1 jing1 zhao4 gu3 ren2 今月曾经照古人
+gu4 ren2 xi1 ci2 huang2 he3 lou2 故人西辞黄鹤楼
+yan1 hua1 san1 yue4 xia4 yang2 zhou1 烟花三月下扬州
+tian1 sheng1 wo3 cai2 bi4 you3 yong4 天生我材必有用
+qian1 jin1 san4 jin4 fu2 hai2 lai2 千金散尽还复来
+tao2 hua1 tan2 shui3 shen1 qian1 chi3 桃花潭水深千尺
+bu4 ji2 wang1 lun2 song4 wo3 qing2 不及汪伦送我情
+=== 唐朝王维 ===
+xing2 dao4 shui3 qiong2 chu4 行到水穷处
+zuo4 kan4 yun2 qi3 shi2 坐看云起时
+kong1 shan1 xin1 yu3 hou4 空山新雨后
+tian1 qi4 wan3 lai2 qiu1 天气晚来秋
+ren2 xian2 gui1 hua1 luo4 人闲桂花落
+ye4 jing4 chun1 shan1 kong1 夜静春山空
+jun1 zi4 gu4 xiang1 lai2 君自故乡来
+ying4 zhi1 gu4 xiang1 shi4 应知故乡事
+kong1 shan1 bu2 jian4 ren2 空山不见人
+dan4 wen2 ren2 yu3 xiang3 但闻人语响
+da4 mo4 gu1 yan1 zhi2 大漠孤烟直
+chang2 he2 luo4 ri4 yuan2 长河落日圆
+yuan3 kan4 shan1 you3 se4 远看山有色
+jin4 ting1 shui3 wu2 sheng1 近听水无声
+ming2 yue4 song1 jian1 zhao4 明月松间照
+qing1 quan2 shi2 shang4 liu2 清泉石上流
+yuan4 jun1 duo1 cai3 xie2 愿君多采撷
+ci3 wu4 zui4 xiang1 si1 此物最相思
+chun1 cao3 ming2 nian2 lv4 春草明年绿
+wang2 sun1 gui1 bu4 gui1 王孙归不归
+=== 唐朝杜甫 ===
+hao3 yu3 zhi1 shi2 jie2 好雨知时节
+dang1 chun1 nai3 fa1 sheng1 当春乃发生
+hui4 dang1 ling2 jue2 ding3 会当凌绝顶
+yi1 lan3 zhong4 shan1 xiao3 一览众山小
+du2 shu1 po4 wan4 juan4 读书破万卷
+xia4 bi3 ru2 you3 shen2 下笔如有神
+lu4 cong2 jin1 ye4 bai2 露从今夜白
+yue4 shi4 gu4 xiang1 ming2 月是故乡明
+bai2 ri4 fang4 ge1 xu1 zong4 jiu3 白日放歌须纵酒
+qing1 chun1 zuo4 ban4 hao3 huan2 xiang1 青春作伴好还乡
+wu2 bian1 luo4 mu4 xiao1 xiao1 xia4 无边落木萧萧下
+bu4 jin4 chang2 jiang1 gun3 gun3 lai2 不尽长江滚滚来
+chu1 shi1 wei4 jie2 shen1 xian3 si3 出师未捷身先死
+chang2 shi3 ying1 xiong2 lei4 man3 jin1 长使英雄泪满襟
+liang3 ge4 huang2 li2 ming2 cui4 liu3 两个黄鹂鸣翠柳
+yi1 xing2 bai2 lu4 shang4 qing1 tian1 一行白鹭上青天
+chuang1 han2 xi1 ling3 qian1 qiu1 xue3 窗含西岭千秋雪
+men2 bo2 dong1 wu2 wan4 li3 chuan2 门泊东吴万里船
+fu4 gui4 bi4 cong2 qin2 ku3 de2 富贵必从勤苦得
+nan2 er2 xu1 du2 wu3 che1 shu1 男儿须读五车书
+zheng4 shi4 jiang1 nan2 hao3 feng1 jing3 正是江南好风景
+luo4 hua1 shi2 jie2 you4 feng1 jun1 落花时节又逢君
+ci3 qu3 zhi1 ying1 tian1 shang4 you3 此曲只应天上有
+ren2 jian1 neng2 de2 ji3 hui2 wen2 人间能得几回闻
+=== 唐朝白居易 ===
+wan3 lai2 tian1 yu4 xue3 晚来天欲雪
+neng2 yin3 yi1 bei1 wu2 能饮一杯无
+li2 li2 yuan2 shang4 cao3 离离原上草
+yi1 sui4 yi1 ku1 rong2 一岁一枯荣
+jun1 mai2 quan2 xia4 ni2 xiao1 gu3 君埋泉下泥销骨
+wo3 ji4 ren2 jian1 xue3 man3 tou2 我寄人间雪满头
+tong2 shi4 tian1 ya2 lun2 luo4 ren2 同是天涯沦落人
+xiang1 feng2 he2 bi4 zeng1 shi2 shi4 相逢何必曾相识
+ren2 jian1 si4 yue4 fang1 fei1 jin4 人间四月芳菲尽
+shan1 si4 tao2 hua1 shi3 sheng4 kai1 山寺桃花始盛开
+tian1 chang2 di4 jiu3 you3 shi2 jin4 天长地久有时尽
+ci3 hen4 mian2 mian2 wu2 jue2 qi1 此恨绵绵无绝期
+ling2 gong1 tao2 li3 man3 tian1 xia4 令公桃李满天下
+he2 yong4 tang2 qian2 geng4 zhong3 hua1 何用堂前更种花
+=== 唐朝李商隐 ===
+xi1 yang2 wu2 xian4 hao3 夕阳无限好
+zhi3 shi4 jin4 huang2 hun1 只是近黄昏
+chang2 e2 ying1 hui4 tou2 ling2 yao4 嫦娥应悔偷灵药
+bi4 hai3 qing1 tian1 ye4 ye4 xin1 碧海青天夜夜心
+ci3 qing2 ke3 dai4 cheng2 zhui1 yi4 此情可待成追忆
+zhi3 shi4 dang1 shi2 yi3 wang3 ran2 只是当时已惘然
+jun1 wen4 gui1 qi1 wei4 you3 qi1 君问归期未有期
+ba1 shan1 ye4 yu3 zhang3 qiu1 chi2 巴山夜雨涨秋池
+shen1 wu2 cai3 feng4 shuang1 fei1 yi4 身无彩凤双飞翼
+xin1 you3 ling2 xi1 yi1 dian3 tong1 心有灵犀一点通
+=== 宋朝 ===
+zuo2 ye4 xi1 feng1 diao1 bi4 shu4 昨夜西风凋碧树
+du2 shang4 gao1 lou2 独上高楼
+wang4 jin4 tian1 ya2 lu4 望尽天涯路
+yi1 dai4 jian4 kuan1 zhong1 bu4 hui3 衣带渐宽终不悔
+wei4 yi1 xiao1 de2 ren2 qiao2 cui4 为伊消得人憔悴
+zhong1 li3 xun2 ta1 qian1 bai3 du4 众里寻他千百度
+mo4 ran2 hui2 shou3 蓦然回首
+na4 ren2 que4 zai4 deng1 huo3 lan2 shan1 chu4 那人却在灯火阑珊处
+shang4 bi4 lou2 上碧楼
+tian1 ya2 fang1 cao3 天涯芳草
+wang3 shi4 zhi1 duo1 shao3 往事知多少
+wen4 jun1 neng2 you3 ji3 duo1 chou2 问君能有几多愁
+qia4 si4 yi1 jiang1 chun1 shui3 xiang4 dong1 liu2 恰似一江春水向东流
+jian3 bu4 duan4 剪不断
+li3 huan2 luan4 理还乱
+shi4 li2 chou2 是离愁
+bie2 shi4 yi1 ban1 zi1 wei4 zai4 xin1 tou2 别是一般滋味在心头
+wu2 yan2 du2 shang4 xi1 lou2 无言独上西楼
+yue4 ru2 gou1 月如钩
+liu3 lang2 mei2 jiao1 chun1 yi4 nao4 柳郎梅娇春意闹
+hong2 xing4 zhi1 tou2 chun1 yi4 nao4 红杏枝头春意闹
+yun2 po4 yue4 lai2 hua1 nong4 ying3 云破月来花弄影
+sha1 shang4 bing4 qin2 chi2 shang4 ming2 沙上并禽池上暝
+wu2 ke3 nai4 he2 hua1 luo4 qu4 无可奈何花落去
+si4 zeng1 xiang1 shi4 yan4 gui1 lai2 似曾相识燕归来
+chun1 jiang1 chao2 shui3 lian2 hai3 ping2 春江潮水连海平
+hai3 shang4 ming2 yue4 gong4 chao2 sheng1 海上明月共潮生
+ren2 sheng1 dai4 dai4 wu2 qiong2 yi3 人生代代无穷已
+jiang1 yue4 nian2 nian2 wang4 xiang1 si4 江月年年望相似
+qian1 li3 huang2 yun2 bai2 ri4 xun1 千里黄云白日曛
+bei3 feng1 chui1 yan4 xue3 fen1 fen1 北风吹雁雪纷纷
+mo4 chou2 qian2 lu4 wu2 zhi1 ji3 莫愁前路无知己
+tian1 xia4 shui2 ren2 bu4 shi4 jun1 天下谁人不识君
+yan4 guo4 ye4 雁过也
+zheng4 shang1 xin1 正伤心
+que4 shi4 jiu4 shi2 xiang1 shi4 却是旧时相识
+man3 di4 huang2 hua1 dui1 ji3 满地黄花堆积
+qiao2 cui4 sun3 憔悴损
+ru2 jin1 you3 shui2 kan1 zhai1 如今有谁堪摘
+wu2 tong2 geng4 jian1 xi4 yu3 梧桐更兼细雨
+dao4 huang2 hun1 到黄昏
+dian3 dian3 di1 di1 点点滴滴
+zhe4 ci4 di3 这次第
+zen3 yi1 ge4 chou2 zi4 liao3 de2 怎一个愁字了得
+=== 元明清 ===
+ku3 teng2 lao3 shu4 hun1 ya1 枯藤老树昏鸦
+xiao3 qiao2 liu2 shui3 ren2 jia1 小桥流水人家
+gu3 dao4 xi1 feng1 shou4 ma3 古道西风瘦马
+xi1 yang2 xi1 xia4 夕阳西下
+duan4 chang2 ren2 zai4 tian1 ya2 断肠人在天涯
+xing1 chui2 ping2 ye3 kuo4 星垂平野阔
+yue4 yong3 da4 jiang1 liu2 月涌大江流
+chuang2 qian2 ming2 yue4 guang1 床前明月光
+yi2 shi4 di4 shang4 shuang1 疑是地上霜
+ju3 tou2 wang4 ming2 yue4 举头望明月
+di1 tou2 si1 gu4 xiang1 低头思故乡
+qian1 shan1 niao3 fei1 jue2 千山鸟飞绝
+wan4 jing4 ren2 zong1 mie4 万径人踪灭
+gu1 zhou1 suo1 li4 weng1 孤舟蓑笠翁
+du2 diao4 han2 jiang1 xue3 独钓寒江雪
+sheng1 dang1 zuo4 ren2 jie2 生当作人杰
+si3 yi4 wei2 gui3 xiong2 死亦为鬼雄
+zhi4 jin1 si1 xiang4 yu3 至今思项羽
+bu4 ken3 guo4 jiang1 dong1 不肯过江东
+nu4 fa1 chong1 guan1 怒发冲冠
+ping2 lan2 chu4 凭栏处
+xiao1 xiao1 yu3 xie4 潇潇雨歇
+tai2 wang4 yan3 抬望眼
+yang3 tian1 chang2 xiao4 仰天长啸
+zhuang4 huai2 ji1 lie4 壮怀激烈
+san1 shi2 gong1 ming2 chen2 yu3 tu3 三十功名尘与土
+ba1 qian1 li3 lu4 yun2 he2 yue4 八千里路云和月
+mo4 deng3 xian2 莫等闲
+bai2 le5 shao4 nian2 tou2 白了少年头
+kong1 bei1 qie4 空悲切
+jing4 kang1 chi3 靖康耻
+you2 wei4 xue3 犹未雪
+chen2 zi3 hen4 臣子恨
+he2 shi2 mie4 何时灭
+jia4 chang2 che1 驾长车
+ta4 po4 he4 lan2 shan1 que1 踏破贺兰山缺
+zhuang4 zhi4 ji1 can1 hu2 lu3 rou4 壮志饥餐胡虏肉
+xiao4 tan2 ke3 yin3 xiong2 nu2 xue3 笑谈渴饮匈奴血
+dai4 cong2 tou2 待从头
+shou1 shi2 jiu4 shan1 he2 收拾旧山河
+chao2 tian1 que4 朝天阙
+si3 qu4 yuan2 zhi1 wan4 shi4 kong1 死去原知万事空
+dan4 bei1 bu2 jian4 jiu3 zhou1 tong2 但悲不见九州同
+wang2 shi1 bei3 ding4 zhong1 yuan2 ri4 王师北定中原日
+jia1 ji4 wu2 wang4 gao4 nai3 weng1 家祭无忘告乃翁
+tian1 di4 you3 zheng4 qi4 天地有正气
+za2 ran2 fu4 liu2 xing2 杂然赋流形
+xia4 ze2 wei2 he2 yue4 下则为河岳
+shang4 ze2 wei2 ri4 xing1 上则为日星
+yu2 ren2 yue1 hao4 ran2 于人曰浩然
+pei4 hu1 sai4 cang1 ming2 沛乎塞苍冥
+shi2 qiong2 jie2 nai3 jian4 时穷节乃见
+yi1 yi1 chui2 dan1 qing1 一一垂丹青
+=== 常用汉字(前200) ===
+de5 的
+yi1 一
+shi4 是
+le5 了
+wo3 我
+bu4 不
+ren2 人
+zai4 在
+ta1 他
+you3 有
+zhe4 这
+ge4 个
+shang4 上
+men2 们
+lai2 来
+dao4 到
+shi2 时
+da4 大
+di4 地
+wei2 为
+zi3 子
+zhong1 中
+ni3 你
+shuo1 说
+sheng1 生
+guo2 国
+nian2 年
+zhe5 着
+jiu4 就
+na4 那
+he2 和
+yao4 要
+ta1 她
+chu1 出
+ye3 也
+de2 得
+li3 里
+hou4 后
+zi4 自
+yi3 以
+hui4 会
+jia1 家
+ke3 可
+xia4 下
+er2 而
+guo4 过
+tian1 天
+qu4 去
+neng2 能
+dui4 对
+xiao3 小
+duo1 多
+ran2 然
+yu2 于
+xin1 心
+xue2 学
+me5 么
+zhi1 之
+dou1 都
+hao3 好
+kan4 看
+qi3 起
+fa1 发
+dang1 当
+mei2 没
+cheng2 成
+zhi3 只
+ru2 如
+shi4 事
+ba3 把
+hai2 还
+yong4 用
+di4 第
+yang4 样
+dao4 道
+xiang3 想
+zuo4 作
+zhong3 种
+kai1 开
+mei3 美
+zong3 总
+cong2 从
+wu2 无
+qing2 情
+ji3 己
+mian4 面
+zui4 最
+nv3 女
+dan4 但
+xian4 现
+qian2 前
+xie1 些
+suo3 所
+tong2 同
+ri4 日
+shou3 手
+you4 又
+xing2 行
+yi4 意
+dong4 动
+fang1 方
+qi1 期
+tou2 头
+jing4 经
+zhang3 长
+er2 儿
+hui2 回
+wei4 位
+fen1 分
+ai4 爱
+lao3 老
+yin1 因
+hen3 很
+gei3 给
+ming2 名
+fa3 法
+jian1 间
+zhi1 知
+shi4 世
+shen2 什
+liang3 两
+ci4 次
+shi3 使
+shen1 身
+zhe3 者
+bei4 被
+gao1 高
+yi3 已
+qin1 亲
+qi2 其
+jin4 进
+ci3 此
+hua4 话
+chang2 常
+yu3 与
+huo2 活
+zheng4 正
+gan3 感
+jian4 见
+ming2 明
+wen4 问
+li4 力
+li3 理
+er3 尔
+dian3 点
+wen2 文
+ji3 几
+ding4 定
+ben3 本
+gong1 公
+te4 特
+zuo4 做
+wai4 外
+hai2 孩
+xiang1 相
+xi1 西
+guo3 果
+zou3 走
+jiang1 将
+yue4 月
+shi2 十
+shi2 实
+xiang4 向
+sheng1 声
+che1 车
+quan2 全
+xin4 信
+zhong4 重
+san1 三
+ji1 机
+gong1 工
+wu4 物
+qi4 气
+mei3 每
+bing4 并
+bie2 别
+zhen1 真
+da3 打
+tai4 太
+xin1 新
+bi3 比
+cai2 才
+bian4 便
+fu1 夫
+zai4 再
+shu1 书
+bu4 部
+shui3 水
+xiang4 像
+yan3 眼
+deng3 等
+ti3 体
+que4 却
+jia1 加
+dian4 电
+zhu3 主
+jie4 界
+men2 门
+li4 利
+hai3 海
+shou4 受
+ting1 听
+biao3 表
+de2 德
+shao3 少
+ke4 克
+dai4 代
+yuan2 员
+xu3 许
+xian1 先
+kou3 口
+you2 由
+si3 死
+an1 安
+xie3 写
+xing4 性
+ma3 马
+guang1 光
+bai2 白
+huo4 或
+zhu4 住
+nan2 难
+wang4 望
+jiao4 教
+ming4 命
+hua1 花
+jie2 结
+le4 乐
+se4 色
+=== 常用语句与成语(部分) ===
+an1 le4 wo1 安乐窝
+bai2 gu3 jing1 白骨精
+bai2 ri4 meng4 白日梦
+ban4 bian1 tian1 半边天
+ban4 jiao3 shi2 绊脚石
+bao3 hu4 san3 保护伞
+bao4 fo2 jiao3 抱佛脚
+bei4 hei1 guo1 背黑锅
+bi4 men2 geng1 闭门羹
+bian4 se4 long2 变色龙
+ca1 bian1 qiu2 擦边球
+chao3 you2 yu1 炒鱿鱼
+chi1 cu4 吃醋
+chi1 xiao3 zao4 吃小灶
+chi1 ya2 dan4 吃鸭蛋
+chuan1 xiao3 xie2 穿小鞋
+dan1 xiang1 si1 单相思
+da3 you2 ji1 打游击
+dian3 gui3 huo3 点鬼火
+diao4 wei4 kou3 吊胃口
+ding3 liang2 zhu1 顶梁柱
+ding4 xin1 wan2 定心丸
+dong1 dao4 zhu3 东道主
+dui4 tai2 xi4 对台戏
+e4 zuo4 ju4 恶作剧
+er3 pang2 feng1 耳旁风
+fang4 kong1 pao4 放空炮
+fang4 leng3 jian4 放冷箭
+gui3 ba3 xi4 鬼把戏
+gui3 men2 guan1 鬼门关
+guo4 he2 zu2 过河卒
+hei1 ming2 dan1 黑名单
+hong2 yan3 bing4 红眼病
+hong2 men2 yan4 鸿门宴
+hu4 shen1 fu2 护身符
+hui2 ma3 qiang1 回马枪
+ji2 xian4 feng1 急先锋
+jin3 gu1 zhou1 紧箍咒
+kai1 lv4 deng1 开绿灯
+kai1 men2 hong2 开门红
+kai1 xiao3 chai1 开小差
+kou3 tou2 chan2 口头禅
+kou4 mao4 zi5 扣帽子
+lao1 dao4 cao3 捞稻草
+lao3 da4 nan2 老大难
+lao3 diao4 ya2 老掉牙
+lao3 hu2 li5 老狐狸
+lao3 huang2 li4 老皇历
+lou4 ma3 jiao3 露马脚
+luan4 tan2 qin2 乱弹琴
+ma3 da4 ha1 马大哈
+ma3 feng1 wo1 马蜂窝
+ma3 hou4 pao4 马后炮
+ma3 qian2 zu2 马前卒
+men2 wai4 han4 门外汉
+mi2 hun2 zhen4 迷魂阵
+mo2 yang2 gong1 磨洋工
+niu2 jiao3 jian1 牛角尖
+niu2 bi2 zi5 牛鼻子
+nong4 chao2 er2 弄潮儿
+pai1 ma3 pi4 拍马屁
+pao3 long2 tao4 跑龙套
+peng4 ding4 zi5 碰钉子
+po4 tian1 huang1 破天荒
+qian1 li3 ma3 千里马
+qiang2 tou2 cao3 墙头草
+qiao1 bian1 gu3 敲边鼓
+qiao1 men2 zhuan1 敲门砖
+qiao1 zhu2 gang1 敲竹杠
+rou4 zhong1 ci4 肉中刺
+ru2 zi3 niu2 孺子牛
+san1 bu4 guan3 三不管
+san1 cun4 she2 三寸舌
+shi4 li4 yan3 势利眼
+shi4 jin1 shi2 试金石
+shou3 cai2 nu2 守财奴
+shua3 ba3 xi4 耍把戏
+shua3 hua1 zhao1 耍花招
+shua3 pin2 zui3 耍贫嘴
+tao2 hua1 yun4 桃花运
+ti1 pi2 qiu2 踢皮球
+tie3 fan4 wan3 铁饭碗
+tie3 gong1 ji1 铁公鸡
+wan4 jin1 you2 万金油
+wo1 li3 dou4 窝里斗
+wu1 sha1 mao4 乌纱帽
+xia4 ma3 wei1 下马威
+xiao3 suan4 pan5 小算盘
+xiao4 mian4 hu3 笑面虎
+yao2 qian2 shu4 摇钱树
+yi1 dao1 qie1 一刀切
+yi1 guo1 duan1 一锅端
+yi1 guo1 zhou1 一锅粥
+yi1 pan2 qi2 一盘棋
+yi1 wo1 feng1 一窝蜂
+yi1 yan2 tang2 一言堂
+ying4 sheng1 chong2 应声虫
+yu2 shui3 qing2 鱼水情
+za2 fan4 wan3 砸饭碗
+zhao4 yao1 jing4 照妖镜
+zhi1 ma5 guan1 芝麻官
+zhi2 niu2 er3 执牛耳
+yi1 chang4 yi1 he2 一唱一和
+yi1 hu1 bai3 ying4 一呼百应
+yi1 gan1 er4 jing4 一干二净
+yi1 ju3 liang3 de2 一举两得
+yi1 luo4 qian1 zhang4 一落千丈
+yi1 mu4 yi1 yang4 一模一样
+yi1 xin1 yi1 yi4 一心一意
+yi1 bai4 tu2 di4 一败涂地
+yi1 ben3 zheng4 jing1 一本正经
+yi1 jian4 ru2 gu4 一见如故
+yi1 jian4 shuang1 diao1 一箭双雕
+yi1 mu4 liao3 ran2 一目了然
+yi1 qiao4 bu4 tong1 一窍不通
+yi1 shi4 tong2 ren2 一视同仁
+yi1 xie4 qian1 li3 一泻千里
+yi1 cheng2 bu4 bian4 一成不变
+yi1 fan1 feng1 shun4 一帆风顺
+yi1 gu3 zuo4 qi4 一鼓作气
+yi1 ru2 ji4 wang3 一如既往
+yi1 si1 bu4 gou3 一丝不苟
+yi1 zhen1 jian4 xue4 一针见血
+yi1 zhi1 ban4 jie3 一知半解
+liang3 quan2 qi2 mei3 两全其美
+liang3 xiu4 qing1 feng1 两袖清风
+san1 gu4 mao2 lu2 三顾茅庐
+san1 ling4 wu3 shen1 三令五申
+san1 si1 er2 xing2 三思而行
+san1 xin1 er2 yi4 三心二意
+si4 hai3 wei2 jia1 四海为家
+si4 mian4 chu3 ge1 四面楚歌
+si4 tong1 ba1 da2 四通八达
+wu3 guang1 shi2 se4 五光十色
+wu3 hua1 ba1 men2 五花八门
+wu3 yan2 liu4 se4 五颜六色
+xue2 fu4 wu3 che1 学富五车
+liu4 shen2 wu2 zhu3 六神无主
+qi1 ling2 ba1 luo4 七零八落
+qi1 shang4 ba1 xia4 七上八下
+qi1 zui3 ba1 she2 七嘴八舌
+ba1 mian4 ling2 long2 八面玲珑
+ba1 xian1 guo4 hai3 八仙过海
+jiu3 si3 yi1 sheng1 九死一生
+jiu3 niu2 yi1 mao2 九牛一毛
+shi2 na2 jiu3 wen3 十拿九稳
+shi2 quan2 shi2 mei3 十全十美
+shi2 wan4 huo3 ji2 十万火急
+bai3 fa1 bai3 zhong4 百发百中
+bai3 hua1 qi2 fang4 百花齐放
+bai3 nian2 da4 ji4 百年大计
+bai3 zhe2 bu4 nao2 百折不挠
+qian1 bian1 wan4 hua4 千变万化
+qian1 fang1 bai3 ji4 千方百计
+qian1 jun1 wan4 ma3 千军万马
+qian1 jun1 yi1 fa4 千钧一发
+qian1 shan1 wan4 shui3 千山万水
+qian1 xin1 wan4 ku3 千辛万苦
+qian1 zhen1 wan4 que4 千真万确
+wan4 shui3 qian1 shan1 万水千山
+wan4 zhong4 yi4 xin1 万众一心
+wan4 zi3 qian1 hong2 万紫千红
+tou2 ci4 jian4 mian4 yong4 jiu3 yang3 头次见面用久仰
+hen3 jiu3 bu2 jian4 shuo1 jiu3 wei4 很久不见说久违
+qing3 ren2 pi1 ping2 shuo1 zhi3 jiao4 请人批评说指教
+qiu2 ren2 yuan2 liang4 yong4 bao1 han2 求人原谅用包涵
+qing3 ren2 bang1 mang2 shuo1 lao2 jia4 请人帮忙说劳驾
+ma2 fan5 bie2 ren2 shuo1 da3 rao3 麻烦别人说打扰
+dui4 bie2 ren2 biao3 qian4 yong4 shi1 jing4 向人表歉用失敬
+bie2 ren2 li2 kai1 yong4 zai4 jian4 别人离开用再见
+qing3 ren2 bu4 song4 yong4 liu2 bu4 请人不送用留步
+huan1 ying2 gu4 ke4 cheng1 guang1 gu4 欢迎顾客称光顾
